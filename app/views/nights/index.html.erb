@@ -1,0 +1,22 @@
+<h1>All Night</h1>
+ 
+<table>
+  <tr>
+    <th>Date</th>
+	<th></th>
+	<th></th>
+	<th></th>
+  </tr>
+ 
+  <% @nights.each do |night| %>
+    <tr>
+      <td><%= night.date %></td>
+      <td><%= link_to 'Show', night_path(night) %></td>
+	  <td><%= link_to 'Edit', edit_night_path(night) %></td>
+      <td><%= link_to 'Destroy', night_path(night),
+	                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+  <%= link_to 'New Game Night', new_night_path %>
+</table>

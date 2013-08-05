@@ -1,7 +1,6 @@
 class NightsController < ApplicationController
   def new
     @night = Night.new
-    @players = Player.all
   end
   
   def create

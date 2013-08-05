@@ -15,6 +15,9 @@
     <%= f.text_field :date %>
   </p>
 
+	<h2>Players</h2>
+	<%= f.select :player_ids, Player.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+		
   <p>
     <%= f.submit %>
   </p>

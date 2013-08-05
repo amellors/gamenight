@@ -1,10 +1,10 @@
 class NightsController < ApplicationController
   def new
     @night = Night.new
+    @players = Player.all
   end
   
   def create
-#    render text: params[:night].inspect
     @night = Night.new(night_params)
 
     if @night.save
@@ -45,6 +45,6 @@ class NightsController < ApplicationController
   
   private
     def night_params
-      params.require(:night).permit(:date)
+      params.require(:night).permit(:date, :player_ids => [] )
     end
 end

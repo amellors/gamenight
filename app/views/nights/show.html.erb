@@ -1,6 +1,12 @@
 <p>
   <strong>Date:</strong>
-  <%= @night.date %>
+  <%= @night.date %><br>
+  <strong>Players</strong>
+  <ul>
+  <% @night.players.each do |playah| %>
+    <li><%= playah.name %></li>
+  <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Back', nights_path %> | <%= link_to 'Edit', edit_night_path(@night) %>

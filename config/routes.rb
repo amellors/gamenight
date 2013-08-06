@@ -9,6 +9,8 @@ Gamenight::Application.routes.draw do
   resources :players
   
   resources :nights
+  
+  resources :games
   # players GET    /players(.:format)          players#index
   
   # Example of regular route:

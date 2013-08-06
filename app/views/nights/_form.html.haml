@@ -1,0 +1,14 @@
+.night_form
+  = form_for @night do |f|
+    - if @night.errors.any?
+      #errorExplanation
+        #{pluralize(@night.errors.count, "error")} prohibited this post from being saved:
+        %ul
+          - @night.errors.full_messages.each do |msg|
+            %li= msg
+    = f.label :Date
+    = f.text_field :date
+    .strong Players
+    = f.select :player_ids, Player.all.collect {|x| [x.name, x.id]}, {}, :multiple => true
+    %br
+    = f.submit

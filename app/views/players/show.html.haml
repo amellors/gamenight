@@ -1,6 +1,5 @@
-<p>
-  <strong>Player:</strong>
-  <%= @player.name %>
-</p>
+.player 
+  Name:
+  = @player.name
 
-<%= link_to 'Back', players_path %> | <%= link_to 'Edit', edit_player_path(@player) %>
+.links #{link_to 'Back', players_path} | #{link_to 'Edit', edit_player_path(@player)}

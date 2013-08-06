@@ -1,22 +1,17 @@
-<h1>All Players</h1>
+.title All the Players
  
-<table>
-  <tr>
-    <th>Name</th>
-	<th></th>
-	<th></th>
-	<th></th>
-  </tr>
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
  
-  <% @players.each do |player| %>
-    <tr>
-      <td><%= player.name %></td>
-      <td><%= link_to 'Show', player_path(player) %></td>
-	  <td><%= link_to 'Edit', edit_player_path(player) %></td>
-      <td><%= link_to 'Destroy', player_path(player),
-	                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
+  - @players.each do |player|
+    %tr
+      %td= player.name
+      %td= link_to 'Show', player_path(player)
+      %td= link_to 'Edit', edit_player_path(player)
+      %td= link_to 'Destroy', player_path(player), method: :delete, data: { confirm: 'Are you sure?' }
 
-  <%= link_to 'New player', new_player_path %>
-</table>
+= link_to 'New Player', new_player_path

@@ -1,21 +1,12 @@
-<%= form_for @player do |f| %>
-  <% if @player.errors.any? %>
-  <div id="errorExplanation">
-    <h2><%= pluralize(@player.errors.count, "error") %> prohibited
-      this post from being saved:</h2>
-    <ul>
-    <% @player.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-  <% end %>
-  <p>
-    <%= f.label :Player %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+.player_form
+  = form_for @player do |f|
+    - if @player.errors.any?
+      #errorExplanation
+        #{pluralize(@player.errors.count, "error")} prohibited this player from being saved:
+        %ul
+          - @player.errors.full_messages.each do |msg|
+            %li= msg
+    = f.label :Player
+    = f.text_field :name
+    %br
+    = f.submit

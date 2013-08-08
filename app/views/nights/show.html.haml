@@ -29,5 +29,5 @@
       = f.label :Winner
       = f.select :winner_ids, @night.players.collect {|x| [x.name, x.id]}, {}, :multiple => true
       %br
-      = f.submit
+      = f.submit "Add Gameplay"
 .links #{link_to 'Back', nights_path} | #{link_to 'Edit', edit_night_path(@night)}

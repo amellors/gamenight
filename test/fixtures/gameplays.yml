@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  night: 
+  game: 
+  status: MyString
+  notes: MyString
+
+two:
+  night: 
+  game: 
+  status: MyString
+  notes: MyString

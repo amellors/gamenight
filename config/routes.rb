@@ -8,7 +8,9 @@ Gamenight::Application.routes.draw do
 
   resources :players
   
-  resources :nights
+  resources :nights do
+    resources :gameplays
+  end
   
   resources :games
   # players GET    /players(.:format)          players#index

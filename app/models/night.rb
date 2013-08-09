@@ -7,7 +7,6 @@ class Night < ActiveRecord::Base
   has_and_belongs_to_many :players
   
   def player_count_is_greater_than_two?
-    Rails::logger.warn "player count = #{player_ids.count}"
     if player_ids.count < 2
       errors.add(:players, "must have more than #{TextHelper.pluralize player_ids.count, 'player'}")
     end

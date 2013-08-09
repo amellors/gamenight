@@ -9,7 +9,8 @@
   .title
     Gameplays:
   - @night.gameplays.each do |gp|
-    .gameplay
+    - gameplay_class = gp.finished ? "gameplay_finished" : "gameplay_unfinished"
+    %div{ class: gameplay_class }
       .game_name= gp.game.name
       .play_status= gp.status
       .play_notes= gp.notes
@@ -26,6 +27,8 @@
       = f.text_field :status
       = f.label :Notes
       = f.text_field :notes
+      = f.label :Finished
+      = f.check_box :finished
       = f.label :Winner
       = f.select :winner_ids, @night.players.collect {|x| [x.name, x.id]}, {}, :multiple => true
       %br

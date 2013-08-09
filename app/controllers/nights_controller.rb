@@ -39,7 +39,7 @@ class NightsController < ApplicationController
   end
   
   def index
-    @nights = Night.all
+    @nights = Night.all.order("date ASC")
   end
   
   private

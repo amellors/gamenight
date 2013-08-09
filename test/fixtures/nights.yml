@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+no_players:
+  id: 1
+  date: 2013-01-01
+
 one:
-  date: 2013-08-03
-  player: 
+  id: 2
+  date: 2013-01-02
 
 two:
-  date: 2013-08-03
-  player: 
+  id: 3
+  date: 2013-01-03
+  
+

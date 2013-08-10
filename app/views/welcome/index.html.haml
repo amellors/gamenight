@@ -1,4 +1,11 @@
 .header Hello fellow gamer!
-.player_link= link_to "All Players", controller: "players"
-.night_link= link_to "All Nights", controller: "nights"
-.night_link= link_to "All Games", controller: "games"
+
+%table
+  %tr
+    %th Date
+    %th Plays
+ 
+  - Night.all.each do |night|
+    %tr
+      %td= link_to night.date, night_path(night)
+      %td{:class => "night_plays"} #{night.gameplays.count} (#{night.finishedCount})

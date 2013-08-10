@@ -15,8 +15,9 @@ class Night < ActiveRecord::Base
   def finishedCount
     tempCount = 0
     gameplays.each do |gp|
-      tempCount = tempCount + 1 if gp.finished
+      tempCount += 1 if gp.finished
     end
+    tempCount
   end
   
 end

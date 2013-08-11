@@ -1,8 +1,1 @@
-- Night.all.order("date ASC").each do |night|
-  .entry
-    %h3= link_to night.date, night_path(night)
-    .gamesplayed
-      - night.uniqueGamesPlayed.each do |game|
-        .game= game
-    .gamecount_line
-      %span.count #{night.gameplays.count} (#{night.finishedCount})
+= render(Night.all.order("date ASC"))

@@ -1,11 +1,8 @@
-.header Hello fellow gamer!
-
-%table
-  %tr
-    %th Date
-    %th Plays
- 
-  - Night.all.each do |night|
-    %tr
-      %td= link_to night.date, night_path(night)
-      %td{:class => "night_plays"} #{night.gameplays.count} (#{night.finishedCount})
+- Night.all.order("date ASC").each do |night|
+  .entry
+    %h3= link_to night.date, night_path(night)
+    .gamesplayed
+      - night.uniqueGamesPlayed.each do |game|
+        .game= game
+    .gamecount_line
+      %span.count #{night.gameplays.count} (#{night.finishedCount})

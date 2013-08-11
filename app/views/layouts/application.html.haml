@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Gamenight
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  - controller_name_class = controller.controller_name
+  %body{ class: controller_name_class }
+    #banner
+      = @page_title || "Tuesday Night Gamers"
+    #columns
+      #side
+        %ul
+          %li= link_to :Home, root_path
+          %li= link_to :Players, players_path
+          %li= link_to :Games, games_path
+          %li= link_to :Contact, root_path
+      #main
+        = yield

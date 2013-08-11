@@ -20,4 +20,17 @@ class Night < ActiveRecord::Base
     tempCount
   end
   
+  def uniqueGamesPlayed
+    gamesPlayed = [];
+    if gameplays.any?
+      gameplays.each do |gp|
+        if ! gamesPlayed.include?(gp.game.name)
+          gamesPlayed << gp.game.name
+        end
+      end
+    else
+      gamesPlayed = %w( None )
+    end
+    return gamesPlayed
+  end
 end

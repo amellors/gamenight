@@ -15,8 +15,11 @@ class GameplaysController < ApplicationController
   
   def destroy
     night = Night.find(params[:night_id])
+    gp_name = Gameplay.find(params[:id]).game.name
     night.gameplays.destroy(Gameplay.find(params[:id]))
 
-    redirect_to night_url(night)
+    respond_to do |format|
+      format.html { redirect_to(night, notice: "Gameplay for #{gp_name} successfully removed.") }
+    end
   end
 end

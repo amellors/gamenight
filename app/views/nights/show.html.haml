@@ -13,7 +13,7 @@
 .gameplay_form
   .title
     Add a gameplay:
-  = form_for([@night, @night.gameplays.build]) do |f|
+  = form_for([@night, @night.gameplays.build], remote: true) do |f|
     = f.label :Game
     = f.select :game_id, Game.all.collect {|x| [x.name, x.id]}
     = f.label :Status

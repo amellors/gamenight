@@ -1,0 +1,11 @@
+.title
+  Gameplays:
+  - @night.gameplays.each do |gp|
+    - gameplay_class = gp.finished ? "gameplay_finished" : "gameplay_unfinished"
+    %div{ class: gameplay_class }
+      .game_name= gp.game.name
+      .delete_play= button_to 'X', night_gameplay_path(@night,gp), method: :delete, remote: true
+      .play_status= gp.status
+      .play_notes= gp.notes
+      - gp.winners.each do |playah|
+        .winner_name= playah.name

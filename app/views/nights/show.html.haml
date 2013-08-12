@@ -7,34 +7,24 @@
   Players:
   - @night.players.each do |playah|
     .player_name= playah.name
-.gameplays
-  .title
-    Gameplays:
-  - @night.gameplays.each do |gp|
-    - gameplay_class = gp.finished ? "gameplay_finished" : "gameplay_unfinished"
-    %div{ class: gameplay_class }
-      .game_name= gp.game.name
-      .delete_play= button_to 'X', night_gameplay_path(@night,gp), method: :delete
-      .play_status= gp.status
-      .play_notes= gp.notes
-      - gp.winners.each do |playah|
-        .winner_name= playah.name
+#gameplays
+  = render "gameplays"
   
-  .gameplay_form
-    .title
-      Add a gameplay:
-    = form_for([@night, @night.gameplays.build]) do |f|
-      = f.label :Game
-      = f.select :game_id, Game.all.collect {|x| [x.name, x.id]}
-      = f.label :Status
-      = f.text_field :status
-      = f.label :Notes
-      = f.text_field :notes
-      = f.label :Finished
-      = f.check_box :finished
-      = f.label :Winner
-      = f.select :winner_ids, @night.players.collect {|x| [x.name, x.id]}, {}, :multiple => true
-      %br
-      = f.submit "Add Gameplay"
+.gameplay_form
+  .title
+    Add a gameplay:
+  = form_for([@night, @night.gameplays.build]) do |f|
+    = f.label :Game
+    = f.select :game_id, Game.all.collect {|x| [x.name, x.id]}
+    = f.label :Status
+    = f.text_field :status
+    = f.label :Notes
+    = f.text_field :notes
+    = f.label :Finished
+    = f.check_box :finished
+    = f.label :Winner
+    = f.select :winner_ids, @night.players.collect {|x| [x.name, x.id]}, {}, :multiple => true
+    %br
+    = f.submit "Add Gameplay"
 
 .links #{link_to 'Back', nights_path} | #{link_to 'Edit', edit_night_path(@night)}

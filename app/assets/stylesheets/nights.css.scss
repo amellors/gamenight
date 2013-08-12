@@ -57,7 +57,7 @@
     	font-weight: bold;
 }
 
-.gameplays
+#gameplays
 {
 	float: left;
 	clear: both;
@@ -85,14 +85,6 @@
 		{
 	    		font-style: italic;
 		}
-
-		.gameplay_form
-		{
-	    		border-color: yellow;
-	    		border-width: 1px;
-	    		border-style: solid;
-	    		clear: both;
-		}
 	}
 	
 	.gameplay_unfinished
@@ -115,15 +107,15 @@
 		{
 	    		font-style: italic;
 		}
-
-		.gameplay_form
-		{
-	    		border-color: yellow;
-	    		border-width: 1px;
-	    		border-style: solid;
-	    		clear: both;
-		}
 	}
+}
+
+.gameplay_form
+{
+		border-color: yellow;
+		border-width: 1px;
+		border-style: solid;
+		clear: both;
 }
 
 td.night_plays

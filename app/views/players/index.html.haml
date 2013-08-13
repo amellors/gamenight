@@ -11,7 +11,9 @@
     %tr
       %td= player.name
       %td= link_to 'Show', player_path(player)
-      %td= link_to 'Edit', edit_player_path(player)
-      %td= link_to 'Destroy', player_path(player), method: :delete, data: { confirm: 'Are you sure?' }
+      - if session[:user_id]
+        %td= link_to 'Edit', edit_player_path(player)
+        %td= link_to 'Destroy', player_path(player), method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Player', new_player_path
+- if session[:user_id]
+  = link_to 'New Player', new_player_path

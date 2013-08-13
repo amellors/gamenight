@@ -3,4 +3,5 @@
 %table 
   = render(@games)
 
-= link_to 'New Game', new_game_path
+- if session[:user_id]
+  = link_to 'New Game', new_game_path

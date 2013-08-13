@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  skip_before_action :authorize, only: [:index, :show]
 
   def new
     @player = Player.new

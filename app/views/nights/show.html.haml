@@ -1,8 +1,11 @@
 -if notice
   #notice= notice
 
-.date 
-  Date: #{@night.date}
+.date  Date: #{@night.date}
+
+- if @night.location_id
+  .location Location: #{@night.location.name}
+
 .players
   Players:
   - @night.players.each do |playah|

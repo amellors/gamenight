@@ -5,6 +5,7 @@ class Night < ActiveRecord::Base
   
   has_many :gameplays
   has_and_belongs_to_many :players
+  belongs_to :location, class_name: :Player, foreign_key: "location_id"
   
   def player_count_is_greater_than_two?
     if player_ids.count < 2

@@ -46,6 +46,6 @@ class NightsController < ApplicationController
   
   private
     def night_params
-      params.require(:night).permit(:date, :player_ids => [] )
+      params.require(:night).permit(:date, :location_id, :player_ids => [])
     end
 end

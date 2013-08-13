@@ -8,6 +8,8 @@
             %li= msg
     = f.label :Date
     = f.text_field :date
+    = f.label :Location
+    = f.select :location_id, Player.all.collect {|x| [x.name, x.id]}
     .strong Players
     = f.select :player_ids, Player.all.collect {|x| [x.name, x.id]}, {}, :multiple => true
     %br

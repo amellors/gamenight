@@ -1,0 +1,15 @@
+- if @night
+  = form_for([@night, @night.gameplays.build], remote: true) do |f|
+    = f.hidden_field(:game_id, :value => "#{@game.id}")
+    = f.label "Game:"
+    = @game.name
+    = f.label :Status
+    = f.text_field :status
+    = f.label :Notes
+    = f.text_field :notes
+    = f.label :Finished
+    = f.check_box :finished
+    = f.label :Winner
+    = f.select :winner_ids, @night.players.collect {|x| [x.name, x.id]}, {}, :multiple => true
+    %br
+    = f.submit "Add Gameplay"

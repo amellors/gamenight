@@ -3,7 +3,7 @@ class Game < ActiveRecord::Base
   
   has_many :gameplays
   
-    def finishedCount
+  def finishedCount
     tempCount = 0
     gameplays.each do |gp|
       tempCount += 1 if gp.finished

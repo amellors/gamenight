@@ -16,22 +16,21 @@
 
 - if session[:user_id]
   .gameplay_form
-    .title
-      Add a gameplay:
-      = collection_select(nil, :game_id, Game.all, :id, :name, {:prompt   => "Select a Game"}, {:id => 'game_id'})
-      :javascript
-        $(document).ready(function() {
-          $('#game_id').change(function() {
-            $.ajax({
-              url: "#{create_gameplay_form_path}",
-              data: {
-                night_id: "#{@night.id}", 
-                game_id : $('#game_id').val()
-              },
-              dataType: "script"
-            });
+    .title Add a gameplay:
+    = collection_select(nil, :game_id, Game.all, :id, :name, {:prompt   => "Select a Game"}, {:id => 'game_id'})
+    :javascript
+      $(document).ready(function() {
+        $('#game_id').change(function() {
+          $.ajax({
+            url: "#{create_gameplay_form_path}",
+            data: {
+              night_id: "#{@night.id}", 
+              game_id : $('#game_id').val()
+            },
+            dataType: "script"
           });
         });
+      });
   #newgameplay_form
 
 .links #{link_to 'Back', nights_path} | #{link_to 'Edit', edit_night_path(@night)}

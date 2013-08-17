@@ -1,11 +1,10 @@
-.title
-  Gameplays:
-  - @night.gameplays.each do |gp|
-    - gameplay_class = gp.finished ? "gameplay_finished" : "gameplay_unfinished"
-    %div{ class: gameplay_class }
-      .game_name= gp.game.name
-      - if session[:user_id]
-        .delete_play= button_to 'X', night_gameplay_path(@night,gp), method: :delete, remote: true
-      .play_notes= gp.notes
-      - gp.players.each do |playah|
-        .player_name= playah.name
+.title Gameplays:
+- @night.gameplays.each do |gp|
+  - gameplay_class = gp.finished ? "gameplay_finished" : "gameplay_unfinished"
+  %div{ class: gameplay_class }
+    .game_name= gp.game.name
+    - if session[:user_id]
+      .delete_play= button_to 'X', night_gameplay_path(@night,gp), method: :delete, remote: true
+    .play_notes= gp.notes
+    - gp.players.each do |playah|
+      .player_name= playah.name

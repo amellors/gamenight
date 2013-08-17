@@ -11,21 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130813020730) do
-
-  create_table "gameplay_winners", force: true do |t|
-    t.integer "gameplay_id"
-    t.integer "player_id"
-  end
+ActiveRecord::Schema.define(version: 20130817012446) do
 
   create_table "gameplays", force: true do |t|
     t.integer  "night_id"
     t.integer  "game_id"
-    t.string   "status"
     t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "finished"
+  end
+
+  create_table "gameplays_players", force: true do |t|
+    t.integer "gameplay_id"
+    t.integer "player_id"
   end
 
   create_table "games", force: true do |t|

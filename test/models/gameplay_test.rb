@@ -10,31 +10,16 @@ class GameplayTest < ActiveSupport::TestCase
     assert gp.errors[:game].any?
   end
   
-  test "gameplay finished must have winners" do
+  test "gameplay players must be more than 1" do
     gp = Gameplay.new
     gp.night = nights(:two)
     gp.game = Game.new(name: 'AH')
 
-    gp.finished = true
-    
     assert gp.invalid?
-    assert_equal ["Game was finished but had no winners"],
-      gp.errors[:finished]
+    assert_equal ["Game cannot be played with less than 1 player"],
+      gp.errors[:players]
       
-    gp.winners << Player.new(name: 'Andy')
+    gp.players << Player.new(name: 'Andy')
     assert gp.valid?
-  end
-  
-  test "gameplay not finished must not have winners" do
-    gp = Gameplay.new
-    gp.night = nights(:two)
-    gp.game = Game.new(name: 'AH')
-    
-    gp.finished = false
-    gp.winners << Player.new(name: 'Andy')
-    assert gp.invalid?
-    assert_equal ["Game was not finsihed but had winners"],
-      gp.errors[:finished]
-      
   end
 end

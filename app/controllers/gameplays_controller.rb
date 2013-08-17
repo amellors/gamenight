@@ -1,7 +1,7 @@
 class GameplaysController < ApplicationController
   def create
     @night = Night.find(params[:night_id])
-    gameplay = @night.gameplays.build(params[:gameplay].permit(:game_id,:status,:notes,:finished,:winner_ids => []))
+    gameplay = @night.gameplays.build(params[:gameplay].permit(:game_id,:status,:notes,:finished,:player_ids => []))
     respond_to do |format|
       if gameplay.save
         format.html { redirect_to(@night, notice: 'Gameplay successfully created.') }

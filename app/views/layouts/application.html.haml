@@ -19,7 +19,7 @@
         - if session[:user_id]
           %ul
             %li=link_to :Users, users_path
-            %li=link_to "New Game", new_game_path
+            %li=link_to "New Night", new_night_path
             %li= button_to 'Logout', logout_path, method: :delete
         %table#games 
           = render(Game.all)

@@ -1,23 +1,17 @@
 class Gameplay < ActiveRecord::Base
   belongs_to :night
   belongs_to :game
-  has_and_belongs_to_many :winners, class_name: :Player, join_table: "gameplay_winners"
+  has_and_belongs_to_many :players
   
   validates :game, presence: true
   validates :night, presence: true
-  validate :winner_or_not_finished?
+  validate :players_valid?
   validates_associated :night
   validates_associated :game
   
-  def winner_or_not_finished?
-    if finished
-      if winner_ids.count < 1
-        errors.add(:finished, "Game was finished but had no winners")
-      end
-    else
-      if winner_ids.count > 0
-        errors.add(:finished, "Game was not finsihed but had winners")
-      end
+  def players_valid?
+    if player_ids.count < 1
+        errors.add(:players, "Game cannot be played with less than 1 player")
     end
   end
 end

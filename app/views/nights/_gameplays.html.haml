@@ -6,7 +6,6 @@
       .game_name= gp.game.name
       - if session[:user_id]
         .delete_play= button_to 'X', night_gameplay_path(@night,gp), method: :delete, remote: true
-      .play_status= gp.status
       .play_notes= gp.notes
-      - gp.winners.each do |playah|
-        .winner_name= playah.name
+      - gp.players.each do |playah|
+        .player_name= playah.name

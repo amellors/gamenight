@@ -12,21 +12,17 @@ Gamenight::Application.routes.draw do
     delete 'logout' => :destroy
   end
   
-  controller :gameplayform do
-    post 'create' => :create
-  end
-  
   get "welcome/index"
 
   resources :players
   
   resources :nights do
     resources :gameplays
+    controller :gameplays do
+      get 'gameplay_form' => :show
+    end
   end
-  
-  controller :gameplayform do
-    get 'create_gameplay_form' => :create
-  end
+
   controller :winforms do
     get 'show_gamewin_form' => :show
   end

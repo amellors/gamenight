@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = User.find(:id)
   end
 
   def new

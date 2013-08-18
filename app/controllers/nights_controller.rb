@@ -9,7 +9,7 @@ class NightsController < ApplicationController
     @night = Night.new(night_params)
 
     if @night.save
-      redirect_to @night
+      redirect_to nights_path
     else
       render 'new'
     end

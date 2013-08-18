@@ -8,6 +8,26 @@
     = f.label :Players
     = f.select :player_ids, @night.players.collect {|x| [x.name, x.id]}, {}, :multiple => true
     = f.label :Finished
-    = f.check_box :finished
+    #finished_check= f.check_box :finished
+    %br
+    #gamewin_form
     %br
     = f.submit "Add Gameplay"
+  :javascript
+      $(document).ready(function() {
+        $('#finished_check').click(function() {
+          var ele = $(this).find('input');
+          if(ele.is(':checked')){
+            $.ajax({
+              url: "#{show_gamewin_form_path}",
+              data: {
+                game_id : $('#game_id').val(),
+                player_ids : $('#gameplay_player_ids').val(),
+              },
+              dataType: "script"
+            });
+          }else{
+            $('#gamewin_form').html("")
+          }
+        });
+      });

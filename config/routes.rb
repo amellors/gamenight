@@ -27,7 +27,10 @@ Gamenight::Application.routes.draw do
   controller :gameplayform do
     get 'create_gameplay_form' => :create
   end
-  
+  controller :winforms do
+    get 'show_gamewin_form' => :show
+  end
+    
   resources :games
   
   resources :users

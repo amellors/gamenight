@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130817012446) do
+ActiveRecord::Schema.define(version: 20130817115831) do
 
   create_table "gameplays", force: true do |t|
     t.integer  "night_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20130817012446) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "win_type"
   end
 
   create_table "nights", force: true do |t|

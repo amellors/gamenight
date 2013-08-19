@@ -14,5 +14,4 @@ class Player < ActiveRecord::Base
   
   # normal win relationship
   has_many :normal_wins, foreign_key: "winner_id"
-  
 end

@@ -2,6 +2,7 @@ class Gameplay < ActiveRecord::Base
   belongs_to :night
   belongs_to :game
   has_and_belongs_to_many :players
+  belongs_to :win_info, :polymorphic => true
   
   validates :game, presence: true
   validates :night, presence: true

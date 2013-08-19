@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  player_win: false
+  gameplay_id: 
+
+two:
+  player_win: false
+  gameplay_id: 

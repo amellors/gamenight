@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130817115831) do
+ActiveRecord::Schema.define(version: 20130819021627) do
+
+  create_table "coop_wins", force: true do |t|
+    t.boolean  "players_win"
+    t.integer  "players_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "gameplays", force: true do |t|
     t.integer  "night_id"
@@ -20,6 +27,8 @@ ActiveRecord::Schema.define(version: 20130817115831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "finished"
+    t.integer  "win_info_id"
+    t.string   "win_info_type"
   end
 
   create_table "gameplays_players", force: true do |t|
@@ -46,10 +55,43 @@ ActiveRecord::Schema.define(version: 20130817115831) do
     t.integer "player_id"
   end
 
+  create_table "normal_wins", force: true do |t|
+    t.integer  "winner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "players", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "resistance_players", force: true do |t|
+    t.integer "resistance_win_id"
+    t.integer "player_id"
+  end
+
+  create_table "resistance_wins", force: true do |t|
+    t.boolean  "spies_win"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "score_win_entries", force: true do |t|
+    t.integer "score_win_id"
+    t.integer "player_id"
+    t.integer "score"
+  end
+
+  create_table "score_wins", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "spy_players", force: true do |t|
+    t.integer "resistance_win_id"
+    t.integer "player_id"
   end
 
   create_table "users", force: true do |t|

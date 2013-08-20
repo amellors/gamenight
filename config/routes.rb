@@ -20,11 +20,8 @@ Gamenight::Application.routes.draw do
     resources :gameplays
     controller :gameplays do
       get 'gameplay_form' => :show
+      get 'gamewin_form' => :showwin
     end
-  end
-
-  controller :winforms do
-    get 'show_gamewin_form' => :show
   end
     
   resources :games

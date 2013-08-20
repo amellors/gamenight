@@ -1,3 +1,5 @@
-= label_tag "Co-op Win"
-= label_tag "Score:"
-= text_field_tag 'score'
+.win_info
+  \--------
+  .won #{coop_win.players_win ? "Players Won!" :  "Game Won!"}
+  - if coop_win.players_score
+    .score Score: #{coop_win.players_score}

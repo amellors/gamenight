@@ -7,7 +7,7 @@
           - @night.errors.full_messages.each do |msg|
             %li= msg
     = f.label :Date
-    = f.text_field :date
+    = f.date_select :date
     = f.label :Location
     = f.select :location_id, Player.all.collect {|x| [x.name, x.id]}
     .strong Players

@@ -1,0 +1,10 @@
+- gameplay_class = gameplay.finished ? "gameplay_finished" : "gameplay_unfinished"
+%div{ class: gameplay_class }
+  .game_name= gameplay.game.name
+  - if session[:user_id]
+    .delete_play= button_to 'X', night_gameplay_path(@night,gameplay), method: :delete, remote: true
+  .play_notes= gameplay.notes
+  - gameplay.players.each do |playah|
+    .player_name= playah.name
+  - if gameplay.win_info
+    = render(gameplay.win_info)

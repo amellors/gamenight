@@ -8,6 +8,14 @@ class GameplaysController < ApplicationController
     end
   end
   
+  def showwin
+    @game = Game.find(params[:game_id])
+    
+    respond_to do |format|
+       format.js
+    end
+  end
+  
   def create
     @night = Night.find(params[:night_id])
     gameplay = @night.gameplays.build(params[:gameplay].permit(:game_id,:status,:notes,:finished,:player_ids => []))

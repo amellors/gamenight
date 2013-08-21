@@ -22,7 +22,7 @@
       $(document).ready(function() {
         $('#game_id').change(function() {
           $.ajax({
-            url: "#{night_gameplay_form_path(@night)}",
+            url: "#{new_night_gameplay_path(@night)}",
             data: {
               night_id: "#{@night.id}", 
               game_id : $('#game_id').val()

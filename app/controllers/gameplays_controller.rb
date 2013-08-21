@@ -1,16 +1,8 @@
 class GameplaysController < ApplicationController
-  def show
+  def new
     @game = Game.find(params[:game_id])
     @night = Night.find(params[:night_id])
 
-    respond_to do |format|
-       format.js
-    end
-  end
-  
-  def showwin
-    @game = Game.find(params[:game_id])
-    
     respond_to do |format|
        format.js
     end

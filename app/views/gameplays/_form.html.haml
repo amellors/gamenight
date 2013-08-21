@@ -19,9 +19,8 @@
           var ele = $(this).find('input');
           if(ele.is(':checked')){
             $.ajax({
-              url: "#{night_gamewin_form_path}",
+              url: "#{new_game_win_path(@game)}",
               data: {
-                game_id : $('#game_id').val(),
                 player_ids : $('#gameplay_player_ids').val(),
               },
               dataType: "script"

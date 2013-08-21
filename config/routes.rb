@@ -18,13 +18,11 @@ Gamenight::Application.routes.draw do
   
   resources :nights do
     resources :gameplays
-    controller :gameplays do
-      get 'gameplay_form' => :show
-      get 'gamewin_form' => :showwin
-    end
   end
     
-  resources :games
+  resources :games do
+    resources :win, :only => [:new]
+  end
   
   resources :users
   # players GET    /players(.:format)          players#index

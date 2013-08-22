@@ -1,0 +1,6 @@
+= label_tag "Spies Win"
+= check_box_tag "win_info[spies_win]"
+= label_tag "Resistance Players"
+= select_tag "win_info[resistance_player_ids]", options_from_collection_for_select(@players, "id", "name"), multiple: true
+= label_tag "Spy Players"
+= select_tag "win_info[spy_player_ids]", options_from_collection_for_select(@players, "id", "name"), multiple: true

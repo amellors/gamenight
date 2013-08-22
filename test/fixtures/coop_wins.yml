@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  player_win: false
-  gameplay_id: 
+  players_win: false
+  players_score: 21
 
 two:
-  player_win: false
-  gameplay_id: 
+  players_win: false
+  players_score: 21

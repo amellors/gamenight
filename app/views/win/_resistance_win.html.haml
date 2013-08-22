@@ -1,0 +1,11 @@
+.win_info
+  \--------
+  .won
+    - if resistance_win.spies_win
+      Spies Won!
+      - resistance_win.spy_players.each do |playah|
+        .winner_name= playah.name
+    - else 
+      Resistance Won!
+      - resistance_win.resistance_players.each do |playah|
+        .winner_name= playah.name

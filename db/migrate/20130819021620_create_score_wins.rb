@@ -1,7 +1,6 @@
 class CreateScoreWins < ActiveRecord::Migration
   def change
     create_table :score_wins do |t|
-
       t.timestamps
     end
     

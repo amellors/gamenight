@@ -17,6 +17,7 @@
 - if session[:user_id]
   .gameplay_form
     .title Add a gameplay:
+    #gameplay_notify
     = collection_select(nil, :game_id, Game.all, :id, :name, {:prompt   => "Select a Game"}, {:id => 'game_id'})
     :javascript
       $(document).ready(function() {

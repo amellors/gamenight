@@ -17,7 +17,7 @@ Gamenight::Application.routes.draw do
   resources :players
   
   resources :nights do
-    resources :gameplays
+    resources :gameplays, :only => [:new, :create, :destroy]
   end
     
   resources :games do

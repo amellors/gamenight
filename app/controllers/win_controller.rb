@@ -5,12 +5,18 @@ class WinController < ApplicationController
     player_ids = params[:player_ids]
     @players = Array.new
     
-    player_ids.each { |x| @players << Player.find(x) if Player.find(x) }
+    print player_ids
     
-    @players.compact
+    if player_ids == ""
+      @error = "Game needs at least 1 player to be finished"
+    else
+      player_ids.each { |x| @players << Player.find(x) if Player.find(x) }
+    
+      @players.compact
+    end
     
     respond_to do |format|
-       format.js
+      format.js
     end
   end
 end

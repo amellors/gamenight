@@ -16,7 +16,7 @@
   :javascript
       $(document).ready(function() {
         $('#finished_check').click(function() {
-          var ele = $(this).find('input');
+          var ele = $(this).find(':checkbox');
           if(ele.is(':checked')){
             $.ajax({
               url: "#{new_game_win_path(@game)}",

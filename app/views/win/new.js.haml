@@ -1,1 +1,11 @@
-$('#gamewin_form').html("#{escape_javascript render("win/" + @game.win_type + "_form")}")
+- if @error
+  // Create a list of errors
+  $('#gameplay_notify').html("#{@error}")
+  var ele = $('#finished_check').find(':checkbox');
+  ele.attr("checked",false);
+  // Clear the form if one was there..
+  $('#gamewin_form').html("")
+- else
+  $('#gamewin_form').html("#{escape_javascript render("win/" + @game.win_type + "_form")}")
+  // Clear error
+  $('#gameplay_notify').html("")

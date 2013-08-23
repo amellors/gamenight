@@ -10,20 +10,22 @@ class GameplaysController < ApplicationController
   
   def create
     @night = Night.find(params[:night_id])
-    gameplay = @night.gameplays.build(params[:gameplay].permit(:game_id,:status,:notes,:finished,:player_ids => []))
-    win_clazz = gameplay.game.win_type.classify.constantize
+    @gameplay = @night.gameplays.build(params[:gameplay].permit(:game_id,:status,:notes,:finished,:player_ids => []))
+    win_clazz = @gameplay.game.win_type.classify.constantize
     win_info = win_clazz.new(win_clazz.win_params(params))
     
     if win_info.save
-      gameplay.win_info = win_info
+      @gameplay.win_info = win_info
       respond_to do |format|
-        if gameplay.save
+        if @gameplay.save
           format.html { redirect_to(@night, notice: 'Gameplay successfully created.') }
           format.js
-          format.json { render action: 'show', status: :created, location: gameplay }
+          format.json { render action: 'show', status: :created, location: @gameplay }
         else
+          win_info.destroy
           format.html { redirect_to(@night, notice: 'Gameplay could not be created.') }
-          format.json { render json: gameplay.errors, status: :unprocessable_entity }
+          format.js
+          format.json { render json: @gameplay.errors, status: :unprocessable_entity }
       end
     end
     end

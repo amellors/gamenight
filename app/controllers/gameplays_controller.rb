@@ -26,8 +26,13 @@ class GameplaysController < ApplicationController
           format.html { redirect_to(@night, notice: 'Gameplay could not be created.') }
           format.js
           format.json { render json: @gameplay.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    else
+      @gameplay.errors.add(:win_info, "- failed validation")
+      respond_to do |format|
+        format.js
+      end
     end
   end
   

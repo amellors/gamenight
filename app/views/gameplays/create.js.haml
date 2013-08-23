@@ -1,5 +1,5 @@
 - if @gameplay.errors.any?
-  $('#gameplay_notify').html("Error with saving Gameplay")
+  $('#gameplay_notify').html("#{escape_javascript render(:partial=>'js_errors', :locals=>{:target=> @gameplay})}")
 - else
   $('#gameplays').html("#{escape_javascript render("nights/gameplays")}")
   $('#gameplay_notify').html("")

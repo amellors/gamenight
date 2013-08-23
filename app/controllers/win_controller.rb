@@ -11,7 +11,6 @@ class WinController < ApplicationController
       @error = "Game needs at least 1 player to be finished"
     else
       player_ids.each { |x| @players << Player.find(x) if Player.find(x) }
-    
       @players.compact
     end
     

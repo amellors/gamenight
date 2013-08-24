@@ -8,5 +8,7 @@
             %li= msg
     = f.label :Game
     = f.text_field :name
+    = f.label :Win_Type
+    = f.select :win_type, getWinTypes
     %br
     = f.submit

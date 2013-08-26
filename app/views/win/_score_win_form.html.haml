@@ -1,3 +1,7 @@
-= label_tag "Score Wins"
 = label_tag "Scores:"
-= text_field_tag 'scores'
+.player_scores
+  - @players.each do |playah|
+    = fields_for "win_info[score_win_entries_attributes[]]", ScoreWinEntry.new do |score_form|
+      = score_form.hidden_field(:player_id, :value => "#{playah.id}")
+      = label_tag "#{playah.name}'s score"
+      = score_form.text_field :score

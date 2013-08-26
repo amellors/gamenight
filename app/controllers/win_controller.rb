@@ -5,8 +5,6 @@ class WinController < ApplicationController
     player_ids = params[:player_ids]
     @players = Array.new
     
-    print player_ids
-    
     if player_ids == ""
       @error = "Game needs at least 1 player to be finished"
     else

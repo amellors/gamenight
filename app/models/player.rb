@@ -10,7 +10,8 @@ class Player < ActiveRecord::Base
   has_and_belongs_to_many :resistance_plays, class_name: :ResistanceWin, :join_table => :resistance_players
   
   # Score win relationship
-  has_many :score_wins, through: :scorewinentries
+  has_many :score_win_entries
+  has_many :score_wins, through: :score_win_entries
   
   # normal win relationship
   has_many :normal_wins, foreign_key: "winner_id"

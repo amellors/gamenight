@@ -1,3 +1,6 @@
 .win_info
   \--------
-  .won Score Win
+  .won
+    - score_win.ordered.each do |swe|
+      .winner_name= swe.name
+      .winner_score= swe.score

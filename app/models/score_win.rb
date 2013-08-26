@@ -7,6 +7,10 @@ class ScoreWin < ActiveRecord::Base
   
   def to_partial_path() "win/score_win" end
   
+  def ordered
+    score_win_entries.sort! { |a,b| b.score <=> a.score }
+  end
+
   def self.win_params (params)
     params.require(:win_info).permit(score_win_entries_attributes: [:player_id, :score ])
   end

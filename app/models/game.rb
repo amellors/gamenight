@@ -3,6 +3,14 @@ class Game < ActiveRecord::Base
   
   has_many :gameplays
   
+  def wins
+    game_wins = Array.new;
+    gameplays.each do |gp|
+      game_wins << gp.win_info if gp.win_info
+    end
+    game_wins
+  end
+  
   def finishedCount
     tempCount = 0
     gameplays.each do |gp|
@@ -10,5 +18,4 @@ class Game < ActiveRecord::Base
     end
     tempCount
   end
-  
 end

@@ -1,9 +1,34 @@
+#win-stats
+#win-graph{ :style => "min-width: 310px; height:400px; auto" }
 :javascript
-  Morris.Donut({
-    element: 'win-graph',
-    data: [
-      {label: "Resistance Wins", value: #{resistance_stats.res_wins}},
-      {label: "Spy Wins", value: #{resistance_stats.spy_wins}}
-    ],
-    colors: [ "#3366CC", "#FF0000"]
+  $('#win-graph').highcharts({
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false
+    },
+    plotOptions: {
+      pie: {
+       	dataLabels: {
+          color: '#000000',
+          connectorColor: '#000000'
+        }
+      } 
+    },
+    title: {
+      text: 'Game Winner'
+    },
+    series: [{
+      type: 'pie',
+      name: 'Game Wins',
+      data: [ { 
+          name: 'Resistance Wins', 
+          color: '#3366CC',
+          y: #{resistance_stats.res_wins} 
+        },{
+          name: 'Spy Wins',
+          color: '#FF0000',
+          y: #{resistance_stats.spy_wins}
+      }]
+    }]
   });

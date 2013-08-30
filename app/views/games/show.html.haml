@@ -4,8 +4,6 @@
 
 .wins
   Games played: #{@game.wins.count}
-#win-stats
-#win-graph
 = render partial: @win_stats.partial_name, object: @win_stats
 
 .links #{link_to 'Back', games_path} | #{link_to 'Edit', edit_game_path(@game)}

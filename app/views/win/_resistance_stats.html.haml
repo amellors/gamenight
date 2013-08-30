@@ -1,0 +1,9 @@
+:javascript
+  Morris.Donut({
+    element: 'win-graph',
+    data: [
+      {label: "Resistance Wins", value: #{resistance_stats.res_wins}},
+      {label: "Spy Wins", value: #{resistance_stats.spy_wins}}
+    ],
+    colors: [ "#3366CC", "#FF0000"]
+  });

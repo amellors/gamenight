@@ -22,6 +22,7 @@ Gamenight::Application.routes.draw do
     
   resources :games do
     resources :win, :only => [:new]
+    get '/win_stats' => 'win_stats#show'
   end
   
   resources :users

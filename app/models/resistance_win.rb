@@ -15,6 +15,10 @@ class ResistanceWin < ActiveRecord::Base
   
   def to_partial_path() "win/resistance_win" end
   
+  def resistance_win
+    return !spies_win
+  end
+  
   def self.win_params (params)
     params.require(:win_info).permit(:spies_win,:resistance_player_ids =>[], :spy_player_ids => [])
   end

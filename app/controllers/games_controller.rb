@@ -17,6 +17,18 @@ class GamesController < ApplicationController
   
   def show
     @game = Game.find(params[:id])
+    case @game.win_type
+      when "resistance_win"
+        @win_stats = ResistanceStats.new(@game.wins)
+      when "score_win"
+        @win_stats = ScoreStats.new(@game.wins)
+      when "normal_win"
+        @win_stats = NormalStats.new(@game.wins)
+      when "coop_win"
+        @win_stats = CoopStats.new(@game.wins)
+      else
+        raise "Unknown win type, #{win_type}"
+      end
   end
   
   def edit

@@ -1,27 +1,28 @@
-#win-graph{ :style => "min-width: 310px; height:400px; auto" }
-:javascript
-  $('#win-graph').highcharts({
-      chart: {
-        type: 'bar'
-      },
-      title: {
-        text: ''
-      },
-      xAxis: {
-        categories: #{normal_stats.players}
-      },
-      yAxis: {
-        allowDecimals: false,
+- if normal_stats.players.count > 0
+  #win-graph{ :style => "min-width: 310px; height:400px; auto" }
+  :javascript
+    $('#win-graph').highcharts({
+        chart: {
+          type: 'bar'
+        },
         title: {
-          text: 'Wins'
-        }
-      },
-      legend: {
-        enabled: false
-      },
-      series: [{
-        name: 'Win Count',
-        data: #{normal_stats.scores}
-      }]
-    });
+          text: ''
+        },
+        xAxis: {
+          categories: #{normal_stats.players}
+        },
+        yAxis: {
+          allowDecimals: false,
+          title: {
+            text: 'Wins'
+          }
+        },
+        legend: {
+          enabled: false
+        },
+        series: [{
+          name: 'Win Count',
+          data: #{normal_stats.scores}
+        }]
+      });
 ​

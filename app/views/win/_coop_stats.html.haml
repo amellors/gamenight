@@ -1,9 +1,33 @@
+High Score: #{coop_stats.high_score}
+
+#win-graph{ :style => "min-width: 310px; height:400px; auto" }
 :javascript
-  Morris.Donut({
-    element: 'win-graph',
-    data: [
-      {label: "Game Wins", value: 12},
-      {label: "Traitor Wins", value: 2},
-      {label: "Player Wins", value: 30}
-    ]
+  $('#win-graph').highcharts({
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false
+    },
+    plotOptions: {
+      pie: {
+       	dataLabels: {
+          color: '#000000',
+          connectorColor: '#000000'
+        }
+      } 
+    },
+    title: {
+      text: 'Game Winner'
+    },
+    series: [{
+      type: 'pie',
+      name: 'Game Wins',
+      data: [ { 
+          name: 'Game Wins', 
+          y: #{coop_stats.game_wins} 
+        },{
+          name: 'Player Wins',
+          y: #{coop_stats.player_wins}
+      }]
+    }]
   });

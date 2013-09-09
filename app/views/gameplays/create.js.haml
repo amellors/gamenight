@@ -2,4 +2,5 @@
   $('#gameplay_notify').html("#{escape_javascript render(:partial=>'js_errors', :locals=>{:target=> @gameplay})}")
 - else
   $('#gameplays').html("#{escape_javascript render("nights/gameplays")}")
+  $('#games').html("#{escape_javascript render(Game.all)}")
   $('#gameplay_notify').html("")

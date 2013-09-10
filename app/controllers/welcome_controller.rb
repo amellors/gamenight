@@ -5,9 +5,9 @@ class WelcomeController < ApplicationController
     if session[:filter] && session[:filter] != "None"
       case session[:filter]
       when "Tuesday"
-        @nights = Night.tuesday
+        @nights = Night.tuesday.order("date ASC")
       when "Cape"
-        @nights = Night.cape
+        @nights = Night.cape.order("date ASC")
       else
         @nights = Night.all.order("date ASC")
       end

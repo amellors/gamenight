@@ -11,7 +11,8 @@
       = @page_title || "Tuesday Night Gamers"
     #columns
       #side
-        #{link_to 'All', all_path} | #{link_to 'Tuesday', tuesday_path} | #{link_to 'Cape', cape_path}
+        %ul
+          %li Filter: #{filter_links}
         %ul
           %li= link_to :Home, root_path
           %li= link_to :Players, players_path

@@ -6,6 +6,7 @@ class Night < ActiveRecord::Base
   has_many :gameplays
   has_and_belongs_to_many :players
   belongs_to :location, class_name: :Player, foreign_key: "location_id"
+  belongs_to :night_type
   
   def player_count_is_greater_than_two?
     if player_ids.count < 2
@@ -34,4 +35,8 @@ class Night < ActiveRecord::Base
     end
     return gamesPlayed
   end
+  
+  scope :tuesday, -> { where(night_type_id: 1) }
+  scope :cape, -> { where(night_type_id: 2) }
+
 end

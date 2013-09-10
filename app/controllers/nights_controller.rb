@@ -26,7 +26,12 @@ class NightsController < ApplicationController
   def update
     @night = Night.find(params[:id])
 
-    if @night.update(night_params)
+    @night.assign_attributes(night_params)
+    if @night.night_type_id == 2
+      @night.location_id = "";
+    end
+
+    if @night.save
       redirect_to @night
     else
       render 'edit'
@@ -46,6 +51,6 @@ class NightsController < ApplicationController
   
   private
     def night_params
-      params.require(:night).permit(:date, :location_id, :player_ids => [])
+      params.require(:night).permit(:date, :location_id, :night_type_id, :player_ids => [])
     end
 end

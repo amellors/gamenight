@@ -8,9 +8,11 @@
             %li= msg
     = f.label :Date
     = f.date_select :date
+    = f.label :Type
+    = f.select :night_type_id, NightType.all.collect {|x| [x.description, x.id]}
     = f.label :Location
     = f.select :location_id, Player.all.collect {|x| [x.name, x.id]}
-    .strong Players
+    = f.label :Players
     = f.select :player_ids, Player.all.collect {|x| [x.name, x.id]}, {}, :multiple => true
     %br
     = f.submit

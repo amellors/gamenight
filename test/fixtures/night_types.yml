@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: Normal Tuesday
+
+two:
+  description: Cape
+
+three:
+  description: Other

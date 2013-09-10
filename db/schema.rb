@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819021627) do
+ActiveRecord::Schema.define(version: 20130909185102) do
 
   create_table "coop_wins", force: true do |t|
     t.boolean  "players_win"
@@ -43,11 +43,18 @@ ActiveRecord::Schema.define(version: 20130819021627) do
     t.string   "win_type"
   end
 
+  create_table "night_types", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "nights", force: true do |t|
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.integer  "night_type_id"
   end
 
   create_table "nights_players", force: true do |t|

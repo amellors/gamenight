@@ -12,6 +12,12 @@ Gamenight::Application.routes.draw do
     delete 'logout' => :destroy
   end
   
+  controller :filter do
+    get 'all' => :all
+    get 'cape' => :cape
+    get 'tuesday' => :tuesday
+  end
+  
   get "welcome/index"
 
   resources :players

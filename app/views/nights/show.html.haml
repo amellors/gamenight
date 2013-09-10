@@ -5,6 +5,8 @@
 
 - if @night.location_id
   .location Location: #{@night.location.name}
+- else
+  .location Location: #{@night.night_type.description}
 
 .players
   Players:

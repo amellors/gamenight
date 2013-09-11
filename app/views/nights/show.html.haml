@@ -23,16 +23,7 @@
     = collection_select(nil, :game_id, Game.all, :id, :name, {:prompt   => "Select a Game"}, {:id => 'game_id'})
     :javascript
       $(document).ready(function() {
-        $('#game_id').change(function() {
-          $.ajax({
-            url: "#{new_night_gameplay_path(@night)}",
-            data: {
-              night_id: "#{@night.id}", 
-              game_id : $('#game_id').val()
-            },
-            dataType: "script"
-          });
-        });
+        show_gp_info("#{new_night_gameplay_path(@night)}")
       });
     #newgameplay_form
 

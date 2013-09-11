@@ -15,18 +15,5 @@
     = f.submit "Add Gameplay"
   :javascript
       $(document).ready(function() {
-        $('#finished_check').click(function() {
-          var ele = $(this).find(':checkbox');
-          if(ele.is(':checked')){
-            $.ajax({
-              url: "#{new_game_win_path(@game)}",
-              data: {
-                player_ids : $('#gameplay_player_ids').val(),
-              },
-              dataType: "script"
-            });
-          }else{
-            $('#gamewin_form').html("")
-          }
-        });
+        show_win_info("#{new_game_win_path(@game)}")
       });

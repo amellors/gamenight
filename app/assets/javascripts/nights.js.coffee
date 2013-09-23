@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+@night_type_visable = ->
   $("#night_night_type_id").on "change", ->
     if @value == "2"
       $("#night_location").hide()

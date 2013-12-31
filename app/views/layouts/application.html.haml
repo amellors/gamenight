@@ -7,17 +7,15 @@
     = csrf_meta_tags
   - controller_name_class = controller.controller_name
   %body{ class: controller_name_class }
-    #banner
-      = @page_title || "Tuesday Night Gamers"
+    = nav_bar :brand => "Tuesday Night Gamers", :brand_link => root_path, :responsive => true do
+      - menu_group do
+        = menu_item "Home", root_path
+        = menu_item "Players", players_path
+        = menu_item "Games", games_path
     #columns
       #side
         %ul
           %li Filter: #{filter_links}
-        %ul
-          %li= link_to :Home, root_path
-          %li= link_to :Players, players_path
-          %li= link_to :Games, games_path
-          %li= link_to :Contact, root_path
         - if session[:user_id]
           %ul
             %li=link_to :Users, users_path

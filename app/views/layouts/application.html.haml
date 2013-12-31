@@ -8,20 +8,37 @@
   - controller_name_class = controller.controller_name
   %body{ class: controller_name_class }
     = nav_bar :brand => "Tuesday Night Gamers", :brand_link => root_path, :responsive => true do
-      - menu_group do
+      = menu_group :pull => :left do
         = menu_item "Home", root_path
-        = menu_item "Players", players_path
-        = menu_item "Games", games_path
-    #columns
-      #side
-        %ul
-          %li Filter: #{filter_links}
+        = menu_item :Players, players_path
+        = menu_item :Games, games_path
+        = drop_down "Filter" do
+          = filter_dropdown
         - if session[:user_id]
-          %ul
-            %li=link_to :Users, users_path
-            %li=link_to "New Night", new_night_path
-            %li= button_to 'Logout', logout_path, method: :delete
-        %table#games 
-          = render(Game.all)
-      #main
-        = yield
+          = drop_down "Admin" do
+            = menu_item :Users, users_path
+            = menu_item "New Night", new_night_path
+
+
+      - if session[:user_id]  
+        = menu_group :pull => :right do   
+          = menu_item "Logout", logout_path, method: :delete
+      - else
+        = menu_group :pull => :right do
+          = drop_down "Log In" do
+            = form_tag "/login" do
+              #login_dropdown
+                %fieldset
+                  %legend Please Log In
+                  %div
+                    = label_tag :name, 'Name:'
+                    = text_field_tag :name, params[:name]
+                  %div
+                    = label_tag :password, 'Password:'
+                    = password_field_tag :password, params[:password]
+                  %div
+                    = submit_tag 'Login'
+    .container
+      .row
+        .col-md-6.col-md-offset-3
+          = yield

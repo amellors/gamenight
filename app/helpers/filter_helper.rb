@@ -1,12 +1,23 @@
 module FilterHelper
-  def filter_links
+  def active_filter
     case session[:filter]
     when "Tuesday"
-      link_to('All', all_path) + ' | Tuesday | ' + link_to('Cape', cape_path)
+      "Tuesday"
     when "Cape"
-      link_to('All', all_path) + ' | ' + link_to('Tuesday', tuesday_path) + ' | Cape'
+      "Cape"
     else
-      link_to('Tuesday', tuesday_path) + ' | ' + link_to('Cape', cape_path) 
+      "" 
+    end
+  end
+  
+  def filter_dropdown
+    case session[:filter]
+    when "Tuesday"
+      menu_item('All', all_path) + menu_item('Cape', cape_path)
+    when "Cape"
+      menu_item('All', all_path) + menu_item('Tuesday', tuesday_path)
+    else
+      menu_item('Tuesday', tuesday_path) + menu_item('Cape', cape_path)
     end
   end
 end

@@ -46,7 +46,7 @@ class NightsController < ApplicationController
   end
   
   def index
-    @nights = Night.all.order("date ASC")
+    @nights = Night.all.order("date DESC")
   end
   
   private
